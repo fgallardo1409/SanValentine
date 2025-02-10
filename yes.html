@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>¡Sorpresa!</title>
+    <style>
+        #image-container {
+            margin-top: 50px;
+        }
+        img {
+            width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="image-container"></div>
+
+    <script>
+        console.log("yes.html ha cargado correctamente.");
+     </script>
+    <script>
+        function flashRainbowColors(callback) {
+            var colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3'];
+            var i = 0;
+            var interval = setInterval(function() {
+                document.body.style.backgroundColor = colors[i];
+                i = (i + 1) % colors.length;
+            }, 200); // Cambia de color cada 200ms
+
+            setTimeout(function() {
+                clearInterval(interval);
+                document.body.style.backgroundColor = ''; // Restaura el fondo
+                if (callback) {
+                    callback();
+                }
+            }, 3000); // Dura 3 segundos antes de mostrar el gato
+        }
+
+        function displayCatHeart() {
+            document.getElementById('image-container').innerHTML = '';
+
+            var imageContainer = document.getElementById('image-container');
+            var catHeartImage = new Image();
+            catHeartImage.src = 'cat-heart.gif'; // Asegúrate de que la imagen está en la misma carpeta
+            catHeartImage.alt = 'Cat Heart';
+
+            catHeartImage.onload = function() {
+                imageContainer.appendChild(catHeartImage);
+            };
+        }
+
+        // Ejecutar la animación de colores y luego mostrar el gato
+        flashRainbowColors(displayCatHeart);
+    </script>
+</body>
+</html>
