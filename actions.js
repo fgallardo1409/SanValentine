@@ -97,7 +97,7 @@ function mostrarMensajePlan() {
     mensajePlan.className = 'mensaje-plan'; // Aplica la clase de estilo CSS
     mensajePlan.innerHTML = `
         <h2>Ouyea</h2>
-        <p>¿Qué te parece si vamos a cenar este viernes a las 7 PM?(Lugar por confirmar)</p>
+        <p>¿Salimos a tomar algo el viernes?</p>
     `;
     
     // Agregar el mensaje al body
